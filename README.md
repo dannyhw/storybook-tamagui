@@ -1,4 +1,6 @@
-![image](https://user-images.githubusercontent.com/3481514/145904252-92e3dc1e-591f-410f-88a1-b4250f4ba6f2.png)
+![tamagui button on 3 platforms](tamagui3platforms.png)
+
+React Native Storybook and Web Storybook with Vite configured for tamagui
 
 # RN app
 
