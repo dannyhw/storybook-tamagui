@@ -1,7 +1,6 @@
 module.exports = {
   stories: [
-    "../components/**/*.stories.mdx",
-    "../components/**/*.stories.@(js|jsx|ts|tsx)",
+    "../components/**/*.@(mdx|stories.@(js|jsx|ts|tsx))",
   ],
   addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
   viteFinal: async (config, { configType }) => {
@@ -16,9 +15,6 @@ module.exports = {
 
     return config;
   },
-  core: {
-    builder: "@storybook/builder-vite",
-  },
   typescript: {
     reactDocgen: "react-docgen",
   },
@@ -26,4 +22,11 @@ module.exports = {
     ...config,
     TAMAGUI_TARGET: "web",
   }),
+  framework: {
+    name: "@storybook/react-vite",
+    options: {},
+  },
+  docs: {
+    autodocs: true,
+  },
 };
