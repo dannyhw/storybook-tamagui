@@ -1,4 +1,5 @@
-![tamagui button on 3 platforms](tamagui3platforms.png)
+<img width="1728" height="1012" alt="image" src="https://github.com/user-attachments/assets/5020a466-f44f-4d07-8914-0a123f1952b1" />
+
 
 React Native Storybook and Web Storybook with Vite configured for tamagui
 
