@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
+    "@storybook/addon-docs": "^10.2.6",
     "@storybook/addon-ondevice-actions": "^10.2.1",
     "@storybook/addon-ondevice-backgrounds": "^10.2.1",
     "@storybook/addon-ondevice-controls": "^10.2.1",

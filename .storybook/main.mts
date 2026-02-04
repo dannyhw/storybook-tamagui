@@ -1,6 +1,6 @@
 export default {
   stories: ["../components/**/*.@(mdx|stories.@(js|jsx|ts|tsx))"],
-  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  addons: ["@storybook/addon-docs"],
   viteFinal: async (config, { configType }) => {
     const { tamaguiPlugin } = await import("@tamagui/vite-plugin");
     config.plugins.push(
