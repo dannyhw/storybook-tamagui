@@ -1,35 +1,21 @@
-import config from "./tamagui.config";
-import Constants from "expo-constants";
-import { useFonts } from "expo-font";
-import { StatusBar } from "expo-status-bar";
-import { useColorScheme } from "react-native";
-import { Paragraph, TamaguiProvider, Theme, Text } from "tamagui";
-import { ReactNode } from "react";
-
-const Wrapper = ({ children }: { children: ReactNode }) => {
-  const colorScheme = useColorScheme();
-
-  const [loaded] = useFonts({
-    Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
-    InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
-  });
-
-  if (!loaded) {
-    return null;
-  }
-
-  return (
-    <TamaguiProvider config={config}>
-      <Theme name={colorScheme === "dark" ? "dark" : "light"}>{children}</Theme>
-    </TamaguiProvider>
-  );
-};
+import { Button, Text, View } from "tamagui";
+import { AppWrapper } from "./components/AppWrapper";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 function App() {
   return (
-    <Wrapper>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </Wrapper>
+    <AppWrapper>
+      <SafeAreaView>
+        <View background={"$background"}>
+          <Text color="$color">
+            Open up App.tsx to start working on your app!
+          </Text>
+          <Button onPress={() => console.log("Button pressed")}>
+            Click me
+          </Button>
+        </View>
+      </SafeAreaView>
+    </AppWrapper>
   );
 }
 
@@ -39,9 +25,9 @@ if (process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true") {
   const StorybookUI = require("./.ondevice").default;
 
   AppEntryPoint = () => (
-    // <Wrapper>
-    <StorybookUI />
-    // </Wrapper>
+    <AppWrapper>
+      <StorybookUI />
+    </AppWrapper>
   );
 }
 

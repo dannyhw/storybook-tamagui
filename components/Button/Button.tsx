@@ -1,5 +1,5 @@
 import React from "react";
-import { Button as TButton } from "tamagui";
+import { Button as TButton } from "@tamagui/button";
 
 interface MyButtonProps {
   onPress: () => void;
@@ -9,7 +9,7 @@ interface MyButtonProps {
 
 export const Button = ({ onPress, text, variant }: MyButtonProps) => {
   return (
-    <TButton onPress={onPress} variant={variant} borderColor={"$gray5Light"}>
+    <TButton onPress={onPress} variant={variant} borderColor={"$borderColor"}>
       {text}
     </TButton>
   );

@@ -10,13 +10,15 @@ module.exports = function (api) {
       process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true"
         ? ["babel-plugin-react-docgen-typescript", { exclude: "node_modules" }]
         : null,
-      // [
-      //   "transform-inline-environment-variables",
-      //   // NOTE: include is optional, you can leave this part out
-      //   {
-      //     include: ["TAMAGUI_TARGET", "EXPO_ROUTER_APP_ROOT"],
-      //   },
-      // ],
+      [
+        "@tamagui/babel-plugin",
+        {
+          components: ["tamagui"],
+          config: "./tamagui.config.ts",
+          logTimings: true,
+          disableExtraction: process.env.NODE_ENV === "development",
+        },
+      ],
       "react-native-worklets/plugin",
     ].filter(Boolean),
   };
