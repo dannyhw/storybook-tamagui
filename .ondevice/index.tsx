@@ -1,6 +1,12 @@
-import { getStorybookUI } from "@storybook/react-native";
-import "./doctools";
-import "./storybook.requires";
+// Import tamagui config FIRST, before any stories load
+import "../tamagui.config";
 
-const StorybookUIRoot = getStorybookUI({});
+import { view } from "./storybook.requires";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+const StorybookUIRoot = view.getStorybookUI({
+  storage: {
+    getItem: AsyncStorage.getItem,
+    setItem: AsyncStorage.setItem,
+  },
+});
 export default StorybookUIRoot;

@@ -15,3 +15,9 @@ export const Basic = {
     text: "Hello world!",
   },
 };
+export const Outlined = {
+  args: {
+    text: "Hello world!",
+    variant: "outlined",
+  },
+};

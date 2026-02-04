@@ -1,9 +1,9 @@
+import config from "./tamagui.config";
 import Constants from "expo-constants";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { useColorScheme } from "react-native";
 import { Paragraph, TamaguiProvider, Theme, Text } from "tamagui";
-import config from "./tamagui.config";
 import { ReactNode } from "react";
 
 const Wrapper = ({ children }: { children: ReactNode }) => {
@@ -35,13 +35,13 @@ function App() {
 
 let AppEntryPoint = App;
 
-if (Constants.expoConfig?.extra?.storybookEnabled === "true") {
+if (process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true") {
   const StorybookUI = require("./.ondevice").default;
 
   AppEntryPoint = () => (
-    <Wrapper>
-      <StorybookUI />
-    </Wrapper>
+    // <Wrapper>
+    <StorybookUI />
+    // </Wrapper>
   );
 }
 
