@@ -1,23 +1,16 @@
-module.exports = {
-  stories: [
-    "../components/**/*.stories.mdx",
-    "../components/**/*.stories.@(js|jsx|ts|tsx)",
-  ],
+export default {
+  stories: ["../components/**/*.@(mdx|stories.@(js|jsx|ts|tsx))"],
   addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
   viteFinal: async (config, { configType }) => {
-    const { tamaguiPlugin } = require("@tamagui/vite-plugin");
-
+    const { tamaguiPlugin } = await import("@tamagui/vite-plugin");
     config.plugins.push(
       tamaguiPlugin({
-        config: "../tamagui.config.ts",
+        config: "./tamagui.config.ts",
         components: ["tamagui"],
       }),
     );
 
     return config;
-  },
-  core: {
-    builder: "@storybook/builder-vite",
   },
   typescript: {
     reactDocgen: "react-docgen",
@@ -26,4 +19,11 @@ module.exports = {
     ...config,
     TAMAGUI_TARGET: "web",
   }),
+  framework: {
+    name: "@storybook/react-vite",
+    options: {},
+  },
+  docs: {
+    autodocs: true,
+  },
 };
