@@ -1,6 +1,7 @@
 import { useColorScheme } from "react-native";
 import { TamaguiProvider, Theme } from "tamagui";
 import config from "../tamagui.config";
+import React from "react";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
